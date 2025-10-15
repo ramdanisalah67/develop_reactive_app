@@ -1,0 +1,19 @@
+POST http://localhost:8081/api/anime/save
+Content-Type: application/json
+
+{
+    "name":"attack on titans",
+    "url":"www.attack.com"
+
+}
+
+###
+
+GET http://localhost:8081/api/anime/all
+Content-Type: application/json
+
+
+###
+
+DELETE http://localhost:8081/api/anime/delete/1
+Content-Type: application/json

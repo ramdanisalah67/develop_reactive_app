@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: springWebflux_deepDive
+  data:
+    mongodb:
+      host: ${MONGO_HOST:localhost}
+
+server:
+  port: 8081
+
