@@ -1,9 +1,10 @@
 POST http://localhost:8081/api/anime/save
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1lZEBnbWFpbC5jb20iLCJpYXQiOjE3NjEzMjYxMDgsImV4cCI6MTc2MTMyNzkwOH0.4pQ-KTxtlhxrYVvjL4ojTUsAECiEFhJ1t4Ugaf2iWFw
 
 {
-    "name":"attack on titans",
-    "url":"www.attack.com"
+    "name":"solo leveling",
+    "url":"www.w3anime.com"
 
 }
 
