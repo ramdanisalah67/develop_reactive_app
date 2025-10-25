@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB # Optional: Set max file size for uploads if not using GridFS directly
+      max-request-size: 10MB # Optional: Set max request size
   application:
     name: springWebflux_deepDive
   data:

@@ -9,6 +9,7 @@ import com.example.springwebflux_deepdive.Services.AuthService;
 import com.example.springwebflux_deepdive.Services.JwtService;
 import com.example.springwebflux_deepdive.dto.AuthRequest;
 import com.example.springwebflux_deepdive.dto.AuthResponse;
+import com.example.springwebflux_deepdive.dto.RegisterUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping("api/identity/")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class HomeController {
 
 private final AuthService authService;
@@ -50,11 +53,9 @@ private final PasswordEncoder passwordEncoder;
         return Mono.just("hey"+username+"!! welcome to our website");
     }
 
-    @GetMapping("/register")
-    public Mono<String> register(){
-    User user =
-        new User(null,"ahmed","065060","ahmed@gmail.com","111","ADMIN");
-
+    @PostMapping("register")
+    public Mono<String> register(@RequestBody RegisterUser user){
+    System.out.println("trace object register user : "+user);
         return authService.register(user);
     }
 
@@ -72,4 +73,5 @@ private final PasswordEncoder passwordEncoder;
 
         return Mono.just("hey admin !! welcome to our website");
     }
+
 }

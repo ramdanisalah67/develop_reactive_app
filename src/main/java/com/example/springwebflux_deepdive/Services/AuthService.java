@@ -7,6 +7,7 @@ import com.example.springwebflux_deepdive.Models.User;
 import com.example.springwebflux_deepdive.Repositories.UserRepository;
 import com.example.springwebflux_deepdive.dto.AuthRequest;
 import com.example.springwebflux_deepdive.dto.AuthResponse;
+import com.example.springwebflux_deepdive.dto.RegisterUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -91,7 +92,7 @@ public class AuthService {
     }
 
 
-    public Mono<String> register(User user){
+    public Mono<String> register(RegisterUser user){
         String email = user.getEmail();
 
         return repository.existsByEmail(email).
@@ -99,8 +100,14 @@ public class AuthService {
                             if(alreadyExist) return Mono.just("User Already exist in Database") ;
 
                             else {
+                                if(!user.getPassword().equals(user.getConfirmPassword())) return Mono.just("password not match ") ;
+
                                 user.setPassword(passwordEncoder.encode(user.getPassword()));
-                                return repository.save(user)
+                                User u = new User(null,user.getFullName(),null,user.getEmail(),user.getPassword(),null);
+
+                                //assigne role
+                                u.setRoles("USER");
+                                return repository.save(u)
                                         .thenReturn("User registered!!");
                             }
                         }

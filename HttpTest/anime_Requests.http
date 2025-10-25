@@ -1,9 +1,9 @@
 POST http://localhost:8081/api/anime/save
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1lZEBnbWFpbC5jb20iLCJpYXQiOjE3NjEzMjYxMDgsImV4cCI6MTc2MTMyNzkwOH0.4pQ-KTxtlhxrYVvjL4ojTUsAECiEFhJ1t4Ugaf2iWFw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1lZEBnbWFpbC5jb20iLCJpYXQiOjE3NjEzNDA3MTYsImV4cCI6MTc2MTM0MjUxNn0.a-pBZ7pcy5Q0C1lYSV34yuPI2680Nu5ZJkXp6nDyC5c
 
 {
-    "name":"solo leveling",
+    "name":"solo leveling II",
     "url":"www.w3anime.com"
 
 }

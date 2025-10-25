@@ -50,8 +50,8 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
 
                 .authorizeExchange((authorize) -> authorize
-                        .pathMatchers("/welcome","/register","/auth").permitAll()
-                        .pathMatchers("/home").hasAuthority("USER")
+                        .pathMatchers("api/identity/welcome","api/files/**","api/identity/register","api/identity/auth").permitAll()
+                        .pathMatchers("api/identity/home").hasAuthority("USER")
 
                         .anyExchange().authenticated()
                 )
